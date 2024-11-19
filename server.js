@@ -58,15 +58,16 @@ function onDgramListening() {
 }
 
 function onDgramMessage(data, info) {
-  const length = data.length;
-  const lastChar = 
+  let str = data.toString();
+  let length = str.length;
+  let lastChar = str[length - 1];
 
-  while (data[length - 1] === )
+  while (lastChar === ' ' || lastChar === ',' || lastChar === ';' || lastChar === '\n' || lastChar === '\t') {
+    length--;
+    lastChar = str[length - 1];
+  }
 
-
-  const str = data.toString().substring(0, data.length - 2);
-
-  // console.log(str);
+  str = data.toString().substring(0, length);
 
   for (let socket of clientSockets) {
     socket.send(str);
