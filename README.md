@@ -1,17 +1,15 @@
-# CoPaint
+# Pd to Web
 
-In this example, multiple clients can paint on this device and watch the common painting on a public web display.
+In this example, messages from Pure Data are sent via websockets to a web client.
 
-By default the example uses a local web server.
+## Setting up
 
-The follwing files are important:
-- `index.html`/`client.js`: the web client that allows to paint
-- `board.html`/`board.js`:  the web client that displays the common painting
-- `max-receiver.maxpat`: a Max patch receiving the data using a *jweb* object 
-- `server.js`: the node.js web and websocket server
+### Install Node modules
+```
+npm install
+```
 
-To run the example with a local server:
-- install the node packages: `npm install`
-- launch the server: `node server.js`
-- open the board `localhost:3000/board.html`
-- open the client webpage `localhost:3000`
+## Starting up
+```
+node server.js
+```
