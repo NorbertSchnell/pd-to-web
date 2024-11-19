@@ -25,6 +25,16 @@ socket.addEventListener('message', (event) => {
   const data = event.data;
 
   if (data.length > 0) {
-    textField.innerHTML = data;
+    const array = data.split(' ');
+
+    if (array.length > 0) {
+      const message = array[0];
+
+      if (message === 'Halli!') {
+        textField.innerHTML = 'Hallo!';
+      } else {
+        textField.innerHTML = data;
+      }
+    }
   }
 });
